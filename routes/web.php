@@ -1,12 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\CourseController;
 use App\Http\Controllers\BatchController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\teacherController;
+use App\Models\Batch;
+use App\Models\Course;
+use App\Models\Payment;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +28,9 @@ Route::get('/', function () {
 });
 
 Route::resource('/students', StudentController::class);
-Route::resource('/teachers', teacherController::class);
+Route::resource('/teachers', TeacherController::class);
 Route::resource('/courses', CourseController::class);
 Route::resource('/batches', BatchController::class);
 Route::resource('/enrollments', EnrollmentController::class);
 Route::resource('/payments', PaymentController::class);
+Route::get('/report/report1/{pid}', [ReportController::class, 'report1']);
